@@ -11,7 +11,7 @@ import * as i18nextLanguageDetector from 'i18next-browser-languagedetector';
     whitelist: ['en', 'es'],
     fallbackLng: 'en',
     debug: true,
-    returnEmptyString: true,
+    returnEmptyString: false,
     ns: [
       'translation',
     ],
@@ -21,14 +21,14 @@ import * as i18nextLanguageDetector from 'i18next-browser-languagedetector';
     },
     backend: {
       loadPath: function (langs, ns) {
-        return 'locales/{{lang}}.{{translation}}.json';
+        return '../locales/{{lng}}.{{ns}}.json';
       }
     },
   };
 
 export function appInit(i18next: ITranslationService) {
   return () => i18next
-      .use(i18nextXHRBackend)
+      .use(i18nextXHRBackend.default)
       .use(i18nextLanguageDetector)
       .init(i18nOptions);
 }
