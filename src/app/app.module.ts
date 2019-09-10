@@ -9,7 +9,7 @@ import * as i18nextLanguageDetector from 'i18next-browser-languagedetector';
 
   const i18nOptions = {
     whitelist: ['en', 'es'],
-    fallbackLng: 'en',
+    fallbackLng: 'es',
     debug: true,
     returnEmptyString: false,
     ns: [
@@ -21,7 +21,7 @@ import * as i18nextLanguageDetector from 'i18next-browser-languagedetector';
     },
     backend: {
       loadPath: function (langs, ns) {
-        return '../locales/{{lng}}.{{ns}}.json';
+        return '/assets/locales/{{lng}}.{{ns}}.json';
       }
     },
   };
@@ -29,7 +29,6 @@ import * as i18nextLanguageDetector from 'i18next-browser-languagedetector';
 export function appInit(i18next: ITranslationService) {
   return () => i18next
       .use(i18nextXHRBackend.default)
-      .use(i18nextLanguageDetector)
       .init(i18nOptions);
 }
 

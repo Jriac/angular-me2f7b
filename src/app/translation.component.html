@@ -1,6 +1,8 @@
 <h1>{{'greeting' | i18next}} {{name}}!</h1>
-
+<h1>{{'100' | currency}}</h1>
 <select (change)="onChange($event.target.value)">
         <option selected >choose lang</option>
         <option *ngFor="let i of languages">{{i}}</option>
     </select>
+
+    <h1>{{'100' | currency}}</h1>
